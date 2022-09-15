@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const { transporter } = require('../services/nodemailer');
 require("dotenv").config();
-const fs = require('fs');
 
 let emailTimers = [];
 let id = 0;
@@ -209,7 +208,7 @@ router.post('/', (req, res, next) => {
                 text: `You left something in your shopping bag, come back and see it!`,
                 html: emailToSend
             };
-            //potentialEmails.push({ id: id, emailObject: emailObject});
+            
             emailHandler(id, emailObject);
 
             res.send({ id });
